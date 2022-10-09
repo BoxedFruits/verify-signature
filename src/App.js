@@ -1,25 +1,47 @@
-import logo from './logo.svg';
 import './App.css';
+import { motion } from 'framer-motion';
+import { useState } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const MODES = {
+    Sign: 'Sign',
+    Select: 'Select',
+    Verify: 'Verify'
 }
 
-export default App;
+export const App = () => {
+    const [currMode, setCurrMode] = useState(MODES.Select);
+
+    return (
+        <div>
+            <motion.div
+                className='blue-gradient'
+            >
+                <motion.p
+                    onTap={() => {currMode !== MODES.Sign ? setCurrMode(MODES.Sign) : setCurrMode(MODES.Select)}}
+                    initial={{ opacity: 1 }}
+                    whileTap={{ scale: 1.17 }}
+                    whileHover={{ scale: 1.1 }}
+                    animate={currMode === MODES.Verify ? { opacity: 0 } : { opacity: 1 }}
+                >SIGN MESSAGE</motion.p>
+            </motion.div>
+            <div
+                className='middle'
+            >
+                <hr></hr>
+            </div>
+            <motion.div
+                className='red-gradient'
+            >
+                <motion.p
+                    onTap={() => {currMode !== MODES.Verify ? setCurrMode(MODES.Verify): setCurrMode(MODES.Select)}}
+                    initial={{ opacity: 1 }}
+                    whileTap={{ scale: 1.17 }}
+                    whileHover={{ scale: 1.1 }}
+                    animate={currMode === MODES.Sign ? { opacity: 0 } : { opacity: 1 }}
+                >VERIFY MESSAGE</motion.p>
+            </motion.div>
+        </div>
+    );
+}
+
+// When progress hits 0 or 1, start an animation
