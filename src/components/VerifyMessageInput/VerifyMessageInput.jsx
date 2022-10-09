@@ -5,7 +5,7 @@ export const VerifyMessageInput = () => {
     return (
         <motion.div>
             <input id='signature' placeholder='Signature'></input>
-            <textarea id='message' placeholder='Message to Verify' rows='10' cols='50'></textarea>
+            <textarea id='message' placeholder='Message to Verify' rows='5' cols='50'></textarea>
             <button onClick={() => verifyMessage(
                 document.querySelector('#message').value,
                 document.querySelector('#signature').value
