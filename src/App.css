@@ -6,6 +6,7 @@
 
 body,
 #root {
+    font-family: 'Nachlieli CLM';
     min-height: 100vh;
     background-color: #000000;
 }
@@ -45,7 +46,6 @@ hr {
 
 
 p {
-    font-family: 'Nachlieli CLM';
     font-size: 128px;
     font-weight: 600;
     line-height: 151px;
