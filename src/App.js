@@ -1,7 +1,6 @@
 import './App.css';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { SignMessageInput } from './components/SignMessageInput/SignMessageInput';
 import {
     WagmiConfig,
     createClient,
@@ -9,7 +8,8 @@ import {
     defaultChains,
 } from 'wagmi'
 import { publicProvider } from 'wagmi/providers/public'
-
+import { SignMessageInput } from './components/SignMessageInput/SignMessageInput';
+import { VerifyMessageInput } from './components/VerifyMessageInput/VerifyMessageInput';
 
 const MODES = {
     Sign: 'Sign',
@@ -49,8 +49,7 @@ export const App = () => {
                             >SIGN MESSAGE</motion.p>
                         </AnimatePresence>
                         : <AnimatePresence>
-                            <SignMessageInput
-                            ></SignMessageInput>
+                            <VerifyMessageInput />
                         </AnimatePresence>
                     }
                 </motion.div>
@@ -70,7 +69,9 @@ export const App = () => {
                             whileHover={{ scale: 1.1 }}
                             animate={currMode === MODES.Sign ? { opacity: 0 } : { opacity: 1 }}
                         >VERIFY MESSAGE</motion.p>
-                        : <div>input box</div>
+                        : <AnimatePresence>
+                            <SignMessageInput />
+                        </AnimatePresence>
                     }
                 </motion.div>
             </div>
