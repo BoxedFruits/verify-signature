@@ -1,14 +1,19 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import { useAccount, useConnect, useSignMessage } from 'wagmi'
 
+
 export const SignMessageInput = () => {
+    // useState()
+    const modal = document.querySelector('#signature-modal');
     const {isConnected } = useAccount()
-    const { signMessage } = useSignMessage();
+    const { data, signMessageAsync } = useSignMessage();
     const { connect, connectors, error, isLoading, pendingConnector } =
         useConnect();
 
     const sign = async () => {
-        signMessage({message: document.querySelector("#message").value})
+        await signMessageAsync({message: document.querySelector("#message").value});
+        modal.showModal();
     }
 
     return (
@@ -30,15 +35,22 @@ export const SignMessageInput = () => {
                             pendingConnector?.id === connector.id ?
                             ' (connecting)' : 'connect'}
                     </button>
-                )) :
+                )) : 
                     (
                         <motion.div>
                             <textarea id="message" placeholder='Message to Sign' rows="10" cols="50"></textarea>
                             <button onClick={() => sign()}>Sign Message</button>
                         </motion.div>
+                       
                     )
                 }
                 {error && <div>{error.message}</div>}
+                
+                <dialog id="signature-modal">
+                    <button onClick={() => modal.close()} id="close-modal">(x)</button>
+                    <h2 id="modal-title">Signature</h2>
+                    <p>{data}</p>
+                </dialog>
             </>
         </motion.div>
     );

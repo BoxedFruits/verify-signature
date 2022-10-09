@@ -40,6 +40,7 @@ export const App = () => {
                     {currMode === MODES.Select || currMode === MODES.Sign ?
                         <AnimatePresence>
                             <motion.p
+                                className="mode-label"
                                 onTap={() => { currMode !== MODES.Sign ? setCurrMode(MODES.Sign) : setCurrMode(MODES.Select) }}
                                 initial={{ opacity: 0 }}
                                 whileTap={{ scale: 1.17 }}
@@ -63,6 +64,7 @@ export const App = () => {
                 >
                     {currMode === MODES.Select || currMode === MODES.Verify ?
                         <motion.p
+                            className="mode-label"
                             onTap={() => { currMode !== MODES.Verify ? setCurrMode(MODES.Verify) : setCurrMode(MODES.Select) }}
                             initial={{ opacity: 1 }}
                             whileTap={{ scale: 1.17 }}
@@ -78,5 +80,3 @@ export const App = () => {
         </WagmiConfig>
     );
 }
-
-// When progress hits 0 or 1, start an animation
