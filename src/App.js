@@ -39,15 +39,18 @@ export const App = () => {
                 >
                     {currMode === MODES.Select || currMode === MODES.Sign ?
                         <AnimatePresence>
-                            <motion.p
-                                className="mode-label"
+                            <motion.button
+                                className="mode-button"
                                 onTap={() => { currMode !== MODES.Sign ? setCurrMode(MODES.Sign) : setCurrMode(MODES.Select) }}
                                 initial={{ opacity: 0 }}
                                 whileTap={{ scale: 1.17 }}
                                 whileHover={{ scale: 1.1 }}
                                 animate={currMode === MODES.Verify ? { opacity: 0 } : { opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                            >SIGN MESSAGE</motion.p>
+                                exit={{ opacity: 0 }}>
+                                <p
+                                    className="mode-label"
+                                >SIGN MESSAGE</p>
+                            </motion.button>
                         </AnimatePresence>
                         : <AnimatePresence>
                             <VerifyMessageInput />
@@ -63,14 +66,20 @@ export const App = () => {
                     className='red-gradient'
                 >
                     {currMode === MODES.Select || currMode === MODES.Verify ?
-                        <motion.p
-                            className="mode-label"
-                            onTap={() => { currMode !== MODES.Verify ? setCurrMode(MODES.Verify) : setCurrMode(MODES.Select) }}
-                            initial={{ opacity: 1 }}
-                            whileTap={{ scale: 1.17 }}
-                            whileHover={{ scale: 1.1 }}
-                            animate={currMode === MODES.Sign ? { opacity: 0 } : { opacity: 1 }}
-                        >VERIFY MESSAGE</motion.p>
+                        <AnimatePresence>
+                            <motion.button
+                                className="mode-button"
+                                onTap={() => { currMode !== MODES.Verify ? setCurrMode(MODES.Verify) : setCurrMode(MODES.Select) }}
+                                initial={{ opacity: 1 }}
+                                whileTap={{ scale: 1.17 }}
+                                whileHover={{ scale: 1.1 }}
+                                animate={currMode === MODES.Sign ? { opacity: 0 } : { opacity: 1 }}
+                            >
+                                <motion.p
+                                    className="mode-label"
+                                >VERIFY MESSAGE</motion.p>
+                            </motion.button>
+                        </AnimatePresence>
                         : <AnimatePresence>
                             <SignMessageInput />
                         </AnimatePresence>

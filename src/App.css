@@ -50,6 +50,11 @@ p.mode-label {
     line-height: 151px;
 }
 
+.mode-button {
+    border: none;
+    background: none;
+}
+
 #signature-modal {
     position: absolute;
     top: 50%;
@@ -65,5 +70,20 @@ p.mode-label {
 #close-modal {
     position: relative;
     float: right;
+    cursor: pointer;
+}
+
+.container-verify-message {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#message {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+button {
     cursor: pointer;
 }
