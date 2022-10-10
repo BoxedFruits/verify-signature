@@ -11,7 +11,7 @@ export const VerifyMessageInput = () => {
             
             <input id='signature' placeholder='Signature'></input>
             <textarea id='message' placeholder='Message to Verify' rows='5' cols='50'></textarea>
-            <button onClick={() => verifyMessage(
+            <button className="btn" onClick={() => verifyMessage(
                 document.querySelector('#message').value,
                 document.querySelector('#signature').value
             )}>Verify Message</button>
