@@ -37,9 +37,9 @@ export const SignMessageInput = () => {
                     </button>
                 )) : 
                     (
-                        <motion.div>
+                        <motion.div id="sign-message-container">
                             <textarea id="message" placeholder='Message to Sign' rows="5" cols="50"></textarea>
-                            <button onClick={() => sign()}>Sign Message</button>
+                            <button className="btn" onClick={() => sign()}>Sign Message</button>
                         </motion.div>
                        
                     )
