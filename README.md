@@ -4,11 +4,11 @@ Small project to play around with wagmi web3 hooks and get more experience desig
 
 TODO:
 
-- [] Clean up code
-- [] Add animations to buttons
-- [] Minor UI changes (Spacing and scalablilty)
-- [] Add gradient effects to mode selectors
-- [] Add error handling
+- [ ] Clean up code
+- [ ] Add animations to buttons
+- [ ] Minor UI changes (Spacing and scalablilty)
+- [ ] Add gradient effects to mode selectors
+- [ ] Add error handling
 
 # Getting Started with Create React App
 
